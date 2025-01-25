@@ -1,4 +1,4 @@
-import { ApiError } from "../utils/apiError.js";
+import { ApiError } from "../utils/index.js";
 
 export const errorHandler = (err, req, res, next) => {
   // If the error is an instance of ApiError, use its statusCode and message
