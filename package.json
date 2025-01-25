@@ -1,0 +1,21 @@
+{
+  "name": "snaptalk-server",
+  "version": "1.0.0",
+  "description": "SnapTalk server  is the server-side of the SnapTalk messaging app, built with Node.js and Express.js. It handles user authentication, message storage, and real-time communication using Socket.IO. The backend is designed to manage user data, chat history, and deliver messages in real-time.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js",
+    "start": "node -r dotenv/config --experimental-json-modules src/index.js"
+  },
+  "author": "Akinur Rahman",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5"
+  }
+}
