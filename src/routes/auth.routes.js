@@ -1,12 +1,13 @@
 import Router from 'express'
-import {login, signup, logout, refreshToken} from '../controllers/user.controller.js'
+import {login, signup, logout, refreshToken, getRandomImage} from '../controllers/user.controller.js'
 import { authLimiter } from '../middlewares/rate-limiter.js'
 
 const router = Router()
 
-router.route("/login").post(authLimiter,login)
-router.route("/signup").post(authLimiter,signup)
-router.route("/logout").post(authLimiter,logout)
-router.route("/refresh").post(authLimiter,refreshToken)
+router.route("/login").post(login)
+router.route("/signup").post(signup)
+router.route("/logout").post(logout)
+router.route("/refresh").post(refreshToken)
+router.route("/get-random-img").get(getRandomImage)
 
 export default router

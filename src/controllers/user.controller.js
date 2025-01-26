@@ -3,6 +3,7 @@ import { User } from "../models/user.model.js";
 import jwt from "jsonwebtoken";
 
 import { asyncHandler, ApiError, ApiResponse } from "../utils/index.js";
+import axios from "axios";
 
 const options = {
   httpOnly: true,
@@ -107,3 +108,18 @@ export const refreshToken = asyncHandler(async (req, res) => {
       new ApiResponse(200, { accessToken }, "Token refreshed successfully")
     );
 });
+
+
+export const getRandomImage = asyncHandler(async (req, res) => {
+  const response = await axios.get("https://api.unsplash.com/photos/random", {
+    params: {
+      client_id: process.env.UNSPLASH_ACCESS_KEY,
+      query: "chatting",
+     
+    },
+  });
+  const imageUrl = response.data.urls.regular;
+
+  res.status(200).json(new ApiResponse(200, { imageUrl }, "Image URL fetched successfully"));
+})
+
